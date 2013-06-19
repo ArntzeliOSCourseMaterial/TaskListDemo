@@ -24,6 +24,8 @@
     self.taskTextField.delegate = self;
     
     self.isTableViewInEditingMode = NO;
+    
+    self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -34,27 +36,24 @@
     
 }
 
+- (void)setEditing:(BOOL)editing animated:(BOOL)animated
+{
+    [super setEditing:editing animated:animated];
+    [self.tasksTableView setEditing:editing animated:YES];
+}
+
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)editButtonPressed:(UIButton *)sender
-{
-//    if (self.isTableViewInEditingMode == YES){
-//        [self.tasksTableView setEditing:NO animated:YES];
-//        self.isTableViewInEditingMode = NO;
-//    }
-//    else {
-//        [self.tasksTableView setEditing:YES animated:YES];
-//        self.isTableViewInEditingMode = YES;
-//    }
-    
-}
 
 - (IBAction)addTaskButtonPressed:(UIButton *)sender
-{    
+{
+    
+    
     Task *task = [Task createEntity];
     task.name = self.taskTextField.text;
     task.isCompleted = NO;
@@ -62,7 +61,8 @@
     [[NSManagedObjectContext MR_contextForCurrentThread] MR_saveToPersistentStoreAndWait];
 
     [self.tasks addObject:task];
-    [self.tasksTableView reloadData];    
+    [self.tasksTableView reloadData];
+    [self.taskTextField resignFirstResponder];
 }
 
 #pragma mark - UITableViewDataSource
@@ -104,14 +104,24 @@
     [self presentViewController:detailVC animated:YES completion:nil];
 }
 
-//-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    if (editingStyle == UITableViewCellEditingStyleDelete)
-//    {
-//        [self.tasks removeObjectAtIndex:indexPath.row];
-//        [self.tasksTableView reloadData];
-//        [self.tasksTableView setEditing:NO animated:NO];
-//    }
-//}
+
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath
+{
+    
+}
+
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete)
+    {
+        Task *task = [self.tasks objectAtIndex:indexPath.row];
+        [task deleteEntity];
+        [[NSManagedObjectContext MR_contextForCurrentThread] MR_saveToPersistentStoreAndWait];
+        
+        [self.tasks removeObjectAtIndex:indexPath.row];
+        [self.tasksTableView reloadData];
+        [self.tasksTableView setEditing:NO animated:NO];
+    }
+}
 
 @end

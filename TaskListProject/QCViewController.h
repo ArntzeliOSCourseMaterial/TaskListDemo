@@ -18,7 +18,6 @@
 @property (nonatomic) BOOL isTableViewInEditingMode;
 @property (strong, nonatomic) NSMutableArray *tasks;
 
-- (IBAction)editButtonPressed:(UIButton *)sender;
 - (IBAction)addTaskButtonPressed:(UIButton *)sender;
 
 @end

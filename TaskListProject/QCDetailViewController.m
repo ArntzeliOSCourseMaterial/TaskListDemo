@@ -28,8 +28,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    NSLog(@"%@", self.stringToBePassed);
-    self.informationLabel.text = self.stringToBePassed;
 }
 
 - (void)didReceiveMemoryWarning
