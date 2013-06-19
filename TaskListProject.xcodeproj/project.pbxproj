@@ -47,8 +47,12 @@
 		6FEBE0E61771FB9D0091BE0F /* MagicalRecord+ShorthandSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FEBE0C91771FB9D0091BE0F /* MagicalRecord+ShorthandSupport.m */; };
 		6FEBE0E71771FB9D0091BE0F /* MagicalRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FEBE0CB1771FB9D0091BE0F /* MagicalRecord.m */; };
 		6FEBE0EB1771FE2C0091BE0F /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6FEBE0E91771FE2C0091BE0F /* Model.xcdatamodeld */; };
-		6FEBE0F11771FFD70091BE0F /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FEBE0F01771FFD70091BE0F /* Task.m */; };
 		6FEBE0F31772009C0091BE0F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FEBE0F21772009C0091BE0F /* CoreData.framework */; };
+		6FEBE1581772449A0091BE0F /* QCCustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FEBE1571772449A0091BE0F /* QCCustomTableViewCell.m */; };
+		6FEBE15A177244E10091BE0F /* QCCustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FEBE159177244E10091BE0F /* QCCustomTableViewCell.xib */; };
+		6FEBE15D177247810091BE0F /* mario.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 6FEBE15B177247810091BE0F /* mario.jpeg */; };
+		6FEBE15E177247810091BE0F /* super-cool-handpaintings.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6FEBE15C177247810091BE0F /* super-cool-handpaintings.jpg */; };
+		6FEBE161177248CC0091BE0F /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FEBE160177248CC0091BE0F /* Task.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -126,9 +130,14 @@
 		6FEBE0CC1771FB9D0091BE0F /* MagicalRecordShorthand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagicalRecordShorthand.h; sourceTree = "<group>"; };
 		6FEBE0CD1771FB9D0091BE0F /* CoreData+MagicalRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CoreData+MagicalRecord.h"; sourceTree = "<group>"; };
 		6FEBE0EA1771FE2C0091BE0F /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
-		6FEBE0EF1771FFD70091BE0F /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
-		6FEBE0F01771FFD70091BE0F /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Task.m; sourceTree = "<group>"; };
 		6FEBE0F21772009C0091BE0F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		6FEBE1561772449A0091BE0F /* QCCustomTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCCustomTableViewCell.h; sourceTree = "<group>"; };
+		6FEBE1571772449A0091BE0F /* QCCustomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCCustomTableViewCell.m; sourceTree = "<group>"; };
+		6FEBE159177244E10091BE0F /* QCCustomTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QCCustomTableViewCell.xib; sourceTree = "<group>"; };
+		6FEBE15B177247810091BE0F /* mario.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mario.jpeg; sourceTree = "<group>"; };
+		6FEBE15C177247810091BE0F /* super-cool-handpaintings.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "super-cool-handpaintings.jpg"; sourceTree = "<group>"; };
+		6FEBE15F177248CC0091BE0F /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
+		6FEBE160177248CC0091BE0F /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Task.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +194,7 @@
 				6FEBE08D1771F33C0091BE0F /* QCDetailViewController.h */,
 				6FEBE08E1771F33C0091BE0F /* QCDetailViewController.m */,
 				6FEBE08F1771F33C0091BE0F /* QCDetailViewController.xib */,
+				6FEBE155177244800091BE0F /* CustomTableViewCell */,
 				6FEBE0E81771FDEF0091BE0F /* Model */,
 				6FEBE0391771E6140091BE0F /* Supporting Files */,
 			);
@@ -194,6 +204,8 @@
 		6FEBE0391771E6140091BE0F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				6FEBE15B177247810091BE0F /* mario.jpeg */,
+				6FEBE15C177247810091BE0F /* super-cool-handpaintings.jpg */,
 				6FEBE0921771FB9D0091BE0F /* MagicalRecord */,
 				6FEBE03A1771E6140091BE0F /* TaskListProject-Info.plist */,
 				6FEBE03B1771E6140091BE0F /* InfoPlist.strings */,
@@ -311,10 +323,20 @@
 			isa = PBXGroup;
 			children = (
 				6FEBE0E91771FE2C0091BE0F /* Model.xcdatamodeld */,
-				6FEBE0EF1771FFD70091BE0F /* Task.h */,
-				6FEBE0F01771FFD70091BE0F /* Task.m */,
+				6FEBE15F177248CC0091BE0F /* Task.h */,
+				6FEBE160177248CC0091BE0F /* Task.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		6FEBE155177244800091BE0F /* CustomTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				6FEBE1561772449A0091BE0F /* QCCustomTableViewCell.h */,
+				6FEBE1571772449A0091BE0F /* QCCustomTableViewCell.m */,
+				6FEBE159177244E10091BE0F /* QCCustomTableViewCell.xib */,
+			);
+			name = CustomTableViewCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -375,6 +397,9 @@
 				6FEBE0491771E6140091BE0F /* Default-568h@2x.png in Resources */,
 				6FEBE04F1771E6140091BE0F /* QCViewController.xib in Resources */,
 				6FEBE0911771F33C0091BE0F /* QCDetailViewController.xib in Resources */,
+				6FEBE15A177244E10091BE0F /* QCCustomTableViewCell.xib in Resources */,
+				6FEBE15D177247810091BE0F /* mario.jpeg in Resources */,
+				6FEBE15E177247810091BE0F /* super-cool-handpaintings.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -416,7 +441,8 @@
 				6FEBE0E61771FB9D0091BE0F /* MagicalRecord+ShorthandSupport.m in Sources */,
 				6FEBE0E71771FB9D0091BE0F /* MagicalRecord.m in Sources */,
 				6FEBE0EB1771FE2C0091BE0F /* Model.xcdatamodeld in Sources */,
-				6FEBE0F11771FFD70091BE0F /* Task.m in Sources */,
+				6FEBE1581772449A0091BE0F /* QCCustomTableViewCell.m in Sources */,
+				6FEBE161177248CC0091BE0F /* Task.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

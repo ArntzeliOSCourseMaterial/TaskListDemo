@@ -9,11 +9,17 @@
 #import <UIKit/UIKit.h>
 #import "Task.h"
 
-@interface QCDetailViewController : UIViewController
+@interface QCDetailViewController : UIViewController <UITextFieldDelegate,UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (strong, nonatomic) Task *taskToBePassed;
 @property (strong, nonatomic) IBOutlet UILabel *informationLabel;
+@property (strong, nonatomic) IBOutlet UITextField *textField;
+@property (strong, nonatomic) IBOutlet UIImageView *imageView;
+
 
 - (IBAction)backButtonPressed:(id)sender;
+- (IBAction)completeButtonPressed:(id)sender;
+- (IBAction)updateButtonPressed:(id)sender;
+- (IBAction)choosePhotoButtonPressed:(UIButton *)sender;
 
 @end

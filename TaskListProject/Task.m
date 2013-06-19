@@ -13,5 +13,6 @@
 
 @dynamic name;
 @dynamic isCompleted;
+@dynamic photo;
 
 @end

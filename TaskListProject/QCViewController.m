@@ -7,6 +7,7 @@
 //
 
 #import "QCViewController.h"
+#import "QCCustomTableViewCell.h"
 
 @interface QCViewController ()
 
@@ -18,7 +19,11 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-        
+    int x = 10;
+    int y = x;
+    NSLog(@"%i", y);
+    
+    
     self.tasksTableView.delegate = self;
     self.tasksTableView.dataSource = self;
     self.taskTextField.delegate = self;
@@ -32,7 +37,7 @@
 {
     NSLog(@"viewDidAppear %@", [Task findAll]);
     self.tasks = [[NSMutableArray alloc] initWithArray:[Task findAll]];
-    [self.tasksTableView reloadData];   
+    [self.tasksTableView reloadData];
     
 }
 
@@ -53,39 +58,66 @@
 - (IBAction)addTaskButtonPressed:(UIButton *)sender
 {
     
-    
-    Task *task = [Task createEntity];
-    task.name = self.taskTextField.text;
-    task.isCompleted = NO;
-    
-    [[NSManagedObjectContext MR_contextForCurrentThread] MR_saveToPersistentStoreAndWait];
-
-    [self.tasks addObject:task];
-    [self.tasksTableView reloadData];
-    [self.taskTextField resignFirstResponder];
+    if ([self.taskTextField.text isEqualToString: @""])
+    {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"You didn't enter anything!" delegate:self cancelButtonTitle:@"Ok I promise to enter something" otherButtonTitles: nil];
+        [alertView show];
+    }
+    else {
+        Task *task = [Task createEntity];
+        task.name = self.taskTextField.text;
+        task.isCompleted = NO;
+        
+        [[NSManagedObjectContext MR_contextForCurrentThread] MR_saveToPersistentStoreAndWait];
+        
+        [self.tasks addObject:task];
+        [self.tasksTableView reloadData];
+        [self.taskTextField resignFirstResponder];
+    }
 }
 
 #pragma mark - UITableViewDataSource
 //required
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *tableViewCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
-
-    Task *task = [self.tasks objectAtIndex:indexPath.row];
-    
-    tableViewCell.textLabel.text = task.name;
-    
-    if (task.isCompleted == YES){
-        
+    static NSString *cellIdentifier = @"Cell";
+    QCCustomTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    if (cell == nil) {
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"QCCustomTableViewCell" owner:self options:nil];
+        cell = [nib objectAtIndex:0];
     }
     
-    return tableViewCell;
+    Task *task = [self.tasks objectAtIndex:indexPath.row];
+    
+    cell.titleLabel.text = task.name;
+    if (task.photo){
+        cell.photo.image = task.photo;
+    }
+    else {
+        cell.photo.image = [UIImage imageNamed:@"mario.jpeg"];
+    }
+    
+    if (task.isCompleted == YES){
+        cell.titleLabel.textColor = [UIColor greenColor];
+    }
+    else {
+        cell.titleLabel.textColor = [UIColor redColor];
+    }
+    
+    return cell;
 }
+
 //required
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return self.tasks.count;
 }
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 340;
+}
+
 
 #pragma mark - UITextFieldDelegate
 
@@ -98,7 +130,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     Task *task = [self.tasks objectAtIndex:indexPath.row];
-
+    
     QCDetailViewController *detailVC = [[QCDetailViewController alloc] initWithNibName:nil bundle:nil];
     detailVC.taskToBePassed = task;
     [self presentViewController:detailVC animated:YES completion:nil];

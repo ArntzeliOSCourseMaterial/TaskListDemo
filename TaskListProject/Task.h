@@ -14,5 +14,6 @@
 
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic) BOOL isCompleted;
+@property (nonatomic, retain) id photo;
 
 @end
