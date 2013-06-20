@@ -52,7 +52,7 @@
 		6FEBE15A177244E10091BE0F /* QCCustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FEBE159177244E10091BE0F /* QCCustomTableViewCell.xib */; };
 		6FEBE15D177247810091BE0F /* mario.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 6FEBE15B177247810091BE0F /* mario.jpeg */; };
 		6FEBE15E177247810091BE0F /* super-cool-handpaintings.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6FEBE15C177247810091BE0F /* super-cool-handpaintings.jpg */; };
-		6FEBE161177248CC0091BE0F /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FEBE160177248CC0091BE0F /* Task.m */; };
+		6FEBE16C17733BB10091BE0F /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FEBE16B17733BB10091BE0F /* Task.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -136,8 +136,8 @@
 		6FEBE159177244E10091BE0F /* QCCustomTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QCCustomTableViewCell.xib; sourceTree = "<group>"; };
 		6FEBE15B177247810091BE0F /* mario.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mario.jpeg; sourceTree = "<group>"; };
 		6FEBE15C177247810091BE0F /* super-cool-handpaintings.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "super-cool-handpaintings.jpg"; sourceTree = "<group>"; };
-		6FEBE15F177248CC0091BE0F /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
-		6FEBE160177248CC0091BE0F /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Task.m; sourceTree = "<group>"; };
+		6FEBE16A17733BB10091BE0F /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
+		6FEBE16B17733BB10091BE0F /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Task.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -323,8 +323,8 @@
 			isa = PBXGroup;
 			children = (
 				6FEBE0E91771FE2C0091BE0F /* Model.xcdatamodeld */,
-				6FEBE15F177248CC0091BE0F /* Task.h */,
-				6FEBE160177248CC0091BE0F /* Task.m */,
+				6FEBE16A17733BB10091BE0F /* Task.h */,
+				6FEBE16B17733BB10091BE0F /* Task.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -442,7 +442,7 @@
 				6FEBE0E71771FB9D0091BE0F /* MagicalRecord.m in Sources */,
 				6FEBE0EB1771FE2C0091BE0F /* Model.xcdatamodeld in Sources */,
 				6FEBE1581772449A0091BE0F /* QCCustomTableViewCell.m in Sources */,
-				6FEBE161177248CC0091BE0F /* Task.m in Sources */,
+				6FEBE16C17733BB10091BE0F /* Task.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -565,6 +565,7 @@
 				6FEBE0541771E6140091BE0F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

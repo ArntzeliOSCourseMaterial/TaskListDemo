@@ -35,10 +35,8 @@
 
 -(void)viewDidAppear:(BOOL)animated
 {
-    NSLog(@"viewDidAppear %@", [Task findAll]);
-    self.tasks = [[NSMutableArray alloc] initWithArray:[Task findAll]];
+    self.tasks = [[NSMutableArray alloc] initWithArray:[Task findAllSortedBy:@"indexNumber" ascending:YES]];
     [self.tasksTableView reloadData];
-    
 }
 
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated
@@ -67,6 +65,7 @@
         Task *task = [Task createEntity];
         task.name = self.taskTextField.text;
         task.isCompleted = NO;
+        task.indexNumber = self.tasks.count;
         
         [[NSManagedObjectContext MR_contextForCurrentThread] MR_saveToPersistentStoreAndWait];
         
@@ -115,7 +114,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 340;
+    return 90;
 }
 
 
@@ -140,6 +139,17 @@
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath
 {
     
+    //update my tasks array.
+    Task *task = [self.tasks objectAtIndex:sourceIndexPath.row];
+    [self.tasks removeObjectAtIndex:sourceIndexPath.row];
+    [self.tasks insertObject:task atIndex:destinationIndexPath.row];
+        
+    for (int y = 0; y < self.tasks.count; y ++){
+        Task *task = [self.tasks objectAtIndex:y];
+        task.indexNumber = y;
+    }
+    
+    [[NSManagedObjectContext contextForCurrentThread] saveToPersistentStoreAndWait];
 }
 
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
