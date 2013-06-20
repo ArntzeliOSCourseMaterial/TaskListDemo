@@ -69,7 +69,10 @@
 -(void)loginHasBeenCompleted
 {
     NSLog(@"loginHasBeenCompleted");
-    
+    self.viewController = [[QCViewController alloc] initWithNibName:@"QCViewController" bundle:nil];
+    UINavigationController *navcontroller = [[UINavigationController alloc] initWithRootViewController:self.viewController];
+    self.window.rootViewController = navcontroller;
+    [self.window makeKeyAndVisible];
 }
 
 @end
