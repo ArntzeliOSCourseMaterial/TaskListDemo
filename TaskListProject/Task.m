@@ -15,5 +15,6 @@
 @dynamic name;
 @dynamic photo;
 @dynamic indexNumber;
+@dynamic user;
 
 @end

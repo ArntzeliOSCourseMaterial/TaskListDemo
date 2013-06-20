@@ -16,5 +16,6 @@
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) id photo;
 @property (nonatomic) int32_t indexNumber;
+@property (nonatomic, retain) NSManagedObject *user;
 
 @end

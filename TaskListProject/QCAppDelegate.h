@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "QCLoginViewController.h"
 
 @class QCViewController;
 
-@interface QCAppDelegate : UIResponder <UIApplicationDelegate>
+@interface QCAppDelegate : UIResponder <UIApplicationDelegate, QCLoginViewControllerDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 

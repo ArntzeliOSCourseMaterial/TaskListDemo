@@ -18,9 +18,23 @@
     // Override point for customization after application launch.
     [MagicalRecord setupAutoMigratingCoreDataStack];
     
-    self.viewController = [[QCViewController alloc] initWithNibName:@"QCViewController" bundle:nil];
-    UINavigationController *navcontroller = [[UINavigationController alloc] initWithRootViewController:self.viewController];
-    self.window.rootViewController = navcontroller;
+    NSUserDefaults *standardDefaults = [NSUserDefaults standardUserDefaults];
+    //signInComplete is a local variable that I use for my if statements
+    BOOL signInComplete = [standardDefaults boolForKey:@"isUserSignedIn"];
+    
+    //the sign in has not been completed
+    if (signInComplete == NO){
+        QCLoginViewController *loginViewController = [[QCLoginViewController alloc] initWithNibName:nil bundle:nil];
+        loginViewController.delegate = self;
+        self.window.rootViewController = loginViewController;
+    }
+    //go into the app
+    else {
+        self.viewController = [[QCViewController alloc] initWithNibName:@"QCViewController" bundle:nil];
+        UINavigationController *navcontroller = [[UINavigationController alloc] initWithRootViewController:self.viewController];
+        self.window.rootViewController = navcontroller;
+    }
+    
     [self.window makeKeyAndVisible];
     return YES;
 }
@@ -50,6 +64,12 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+-(void)loginHasBeenCompleted
+{
+    NSLog(@"loginHasBeenCompleted");
+    
 }
 
 @end
