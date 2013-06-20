@@ -66,7 +66,26 @@
         Task *task = [Task createEntity];
         task.name = self.taskTextField.text;
         task.isCompleted = NO;
-        task.indexNumber = self.tasks.count;
+        task.indexNumber = self.tasks.count;        
+        
+        NSArray *users = [User findAll];
+        
+        NSUserDefaults *standardDefaults = [NSUserDefaults standardUserDefaults];
+        NSString *emailOfSignedInUser = [standardDefaults objectForKey:@"email"];
+        
+        User *currentUser;
+        for (int x = 0; x < users.count; x ++ ){
+            User *user = [users objectAtIndex:x];
+            if ([user.email isEqualToString:emailOfSignedInUser]){
+                currentUser = user;
+            }
+        }
+        
+        
+        task.user = currentUser;
+        
+        NSLog(@"%@", task.user);
+        
         
         [[NSManagedObjectContext MR_contextForCurrentThread] MR_saveToPersistentStoreAndWait];
         

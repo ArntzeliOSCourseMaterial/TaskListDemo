@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "QCDetailViewController.h"
 #import "Task.h"
+#import "User.h"
 
 @interface QCViewController : UIViewController <UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate>
 
